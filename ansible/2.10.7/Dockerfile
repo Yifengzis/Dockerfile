@@ -1,6 +1,6 @@
 FROM debian:buster
 LABEL MAINTAINER="yifengzis@qq.com"
-LABEL ansible_version="last"
+LABEL ansible_version="2.10.7"
 LABEL ansible_home="/usr/share/ansible"
 
 RUN sed -e '9,12 s|\#\ ||g' -e '8a export SHELL="bash"' -i /root/.bashrc && \
@@ -11,7 +11,7 @@ RUN sed -e '9,12 s|\#\ ||g' -e '8a export SHELL="bash"' -i /root/.bashrc && \
     rm -rf /var/lib/apt/lists/* && \
     python3 -m pip install --no-cache-dir pip -U && \
     pip install --no-cache-dir setuptools wheel paramiko && \
-    pip install --no-cache-dir ansible
+    pip install --no-cache-dir ansible-base==2.10.7 ansible==3.2.0
 
 WORKDIR /usr/share/ansible
 
