@@ -15,4 +15,4 @@ RUN sed -e '9,12 s|\#\ ||g' -e '8a export SHELL="bash"' -i /root/.bashrc && \
 
 WORKDIR /usr/share/ansible
 
-CMD [ "/bin/bash" ]
+ENTRYPOINT [ "/bin/bash" ]
