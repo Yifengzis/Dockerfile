@@ -26,17 +26,13 @@ RUN sed -e '9,12 s|\#\ ||g' -i /root/.bashrc \
     && echo "set paste\nset mouse=\nsyntax on" >> /root/.vimrc
 
 COPY resource/ /
-#COPY resource/root/.ssh /root/.ssh
-#COPY resource/etc/ansible etc/ansible
 
 ENV SHELL=/bin/bash LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/openresty/luajit/bin:/usr/local/openresty/nginx/sbin:/usr/local/openresty/bin
 
 WORKDIR /usr/local/openresty/nginx
 
-#ENTRYPOINT ["dumb-init", "--"]
 ENTRYPOINT ["dumb-init", "--", "/docker-entrypoint.sh"]
 
 STOPSIGNAL SIGQUIT
 
-#CMD ["/bin/bash"]
 CMD ["/usr/bin/openresty", "-g", "daemon off;"]

@@ -1,1 +1,1 @@
-01 00 * * * /bin/bash /docker-entrypoint.d/cron.d/nginx-logs.sh
+00 00 * * * /bin/bash /docker-entrypoint.d/cron.d/nginx-logs.sh
