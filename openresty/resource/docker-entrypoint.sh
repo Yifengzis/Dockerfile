@@ -3,6 +3,15 @@
 
 set -e
 
+cat << EOF
+################################################
+#                                              #
+#         欢迎使用 OpenResty Nginx !!!         #
+#                                              #
+################################################
+
+EOF
+
 if /usr/bin/find "/docker-entrypoint.d/" -mindepth 1 -maxdepth 1 -type f -print -quit 2>/dev/null | read v; then
     echo "$0: /docker-entrypoint.d/ is not empty, will attempt to perform configuration"
 
