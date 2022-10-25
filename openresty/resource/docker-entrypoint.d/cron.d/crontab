@@ -1,1 +1,1 @@
-00 00 * * * /bin/bash /docker-entrypoint.d/cron.d/nginx-logs.sh
+00 00 * * * /bin/bash /docker-entrypoint.d/cron.d/nginx-logs.sh >> /usr/local/openresty/nginx/nginx-logs.out 2>&1

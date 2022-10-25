@@ -4,13 +4,17 @@
 set -e
 #set -x
 
+echo -e "$(date +"%F %T") 开始执行 Nginx 日志切割与清理"
+begintime=$(date +%s)
+
+nginx_bin_dir="/usr/local/openresty/nginx/sbin"
+
 if [[ -z ${nginx_logs_dir} ]]; then
     nginx_logs_dir="/usr/local/openresty/nginx/logs"
 fi
 if [[ -z ${nginx_logs_retention_time} ]]; then
     nginx_logs_retention_time=31
 fi
-#nginx_bin_dir="/usr/local/openresty/nginx/sbin"
 
 log_cut() { 
     cd $nginx_logs_dir
@@ -29,7 +33,7 @@ log_cut() {
             fi
         fi
     done
-    nginx -s reopen
+    ${nginx_bin_dir}/nginx -s reopen
 }
 
 log_clean() {
@@ -45,3 +49,6 @@ main() {
 }
 
 main
+
+endtime=$(date +%s)
+echo -e "$(date +"%F %T") 执行 Nginx 日志切割与清理完成, 耗时: $(($endtime - $begintime))s"
