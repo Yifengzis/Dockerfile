@@ -6,12 +6,12 @@ RUN sed -e '9,12 s|\#\ ||g' -i /root/.bashrc \
     && echo ". /etc/profile.d/bash_completion.sh" >> /root/.bashrc \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && debian_version=$(awk -F'=' '/^VERSION_CODENAME=/ {print $2}' /etc/os-release) \
-    && echo "deb http://mirrors.aliyun.com/debian/ ${debian_version} main contrib non-free" > /etc/apt/sources.list \
-    && echo "deb http://mirrors.aliyun.com/debian/ ${debian_version}-updates main contrib non-free" >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.aliyun.com/debian/ ${debian_version}-proposed-updates main contrib non-free" >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.aliyun.com/debian/ ${debian_version}-backports main contrib non-free" >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.aliyun.com/debian/ ${debian_version}-backports-sloppy main contrib non-free" >> /etc/apt/sources.list \
-    && echo "deb http://mirrors.aliyun.com/debian-security ${debian_version}-security main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ ${debian_version} main contrib non-free" > /etc/apt/sources.list \
+    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ ${debian_version}-updates main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ ${debian_version}-proposed-updates main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ ${debian_version}-backports main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ ${debian_version}-backports-sloppy main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security ${debian_version}-security main contrib non-free" >> /etc/apt/sources.list \
     && apt update && apt upgrade -y \
     && apt install -y --no-install-recommends --no-install-suggests bash-completion procps locales netcat-openbsd iputils-ping curl ca-certificates gnupg2 vim dumb-init cron \
     && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && locale-gen en_US.UTF-8 \
