@@ -1,1 +1,4 @@
-00 00 * * * /bin/bash /docker-entrypoint.d/cron.d/nginx-logs.sh >> /usr/local/openresty/nginx/nginx-logs.out 2>&1
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/openresty/luajit/bin:/usr/local/openresty/nginx/sbin:/usr/local/openresty/bin
+
+00 00 * * * /bin/bash /docker-entrypoint.d/cron.d/nginx-logs.sh >> /usr/local/openresty/nginx/logs/nginx-logs.out 2>&1

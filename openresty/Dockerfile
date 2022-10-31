@@ -35,4 +35,4 @@ ENTRYPOINT ["dumb-init", "--", "/docker-entrypoint.sh"]
 
 STOPSIGNAL SIGQUIT
 
-CMD ["/usr/bin/openresty", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
